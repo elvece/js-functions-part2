@@ -43,14 +43,6 @@ console.log(oldestPerson());
 console.log(longestWord("This is a test sentence."));
 
 
-
-
-
-
-
-
-
-
 //Problem 3: Refactor the `longestWord` function so that it ignores punctuation.
 
 
