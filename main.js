@@ -82,7 +82,6 @@ factor(10);
 
 //Bonus: Write a function called `palindrome` that takes a string as an argument and returns the string in reversed order. Return true if the string is the same as the reversed string, otherwise return false.
 /*Pseudo Code:
-
 copy string into a new array
 split string into seperate characters
 reverse the order of the characters in the array
@@ -91,6 +90,10 @@ if reverseString is same as originalString, return true, else, return fasle
 then merge split characters back into a string
 return final string
 */
-function palindrome(originalString) {
+function palindrome(string) {
+  var split = string.split(" ");
+  var holdArray = [];
+
 
 }
+palindrome("lucy");
