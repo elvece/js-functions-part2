@@ -23,7 +23,6 @@ function oldestPerson(keyValueObject) {
 oldestPerson(people);
 
 //Problem 2: Define a function called `longestWord` that takes a string and returns the longest word in the string.
-
 function longestWord(string) {
   var stringSplit = string.split(" ");
   var longest = 0;
@@ -37,19 +36,19 @@ function longestWord(string) {
   return answer;
 }
 
-// longestWord("This is a test sentence");
+longestWord("This is a test sentence");
 
 //Problem 3: Refactor the `longestWord` function so that it ignores punctuation.
 /*pseudo code:
 after spliiting, test for anything other than capital and lowercase letters
 ignore anything other than capital or lowercase letters
 */
-function longestWord(string) {
-  var stringSplit = string.split(" ");
-  var stringIgnorePunc = stringSplit.match(/[^_\W]+/g).join(" ");
+function longestWordIgnorePunc(string) {
+  var stringIgnorePunc = string.replace(/[\.,-\/#'?!$%\^&\*;:{}=\-_`~()]/g,"");
+  var split = stringIgnorePunc.split(" ");
   var longest = 0;
   var answer = "";
-  stringIgnorePunc.forEach(function(stringIgnorePunc){
+  split.forEach(function (stringIgnorePunc){
     if (longest < stringIgnorePunc.length){
       longest = stringIgnorePunc.length;
       answer = stringIgnorePunc;
@@ -58,7 +57,7 @@ function longestWord(string) {
   return answer;
 }
 
-longestWord("We've been going the the lake for thirteen years, what about you?");
+longestWordIgnorePunc("Can I compare jennifer with jennifer's?");
 
 
 
@@ -69,18 +68,21 @@ math: factorial is num*(num-1)
 if, else?
 */
 function factor(num) {
-  if (typeof num !== "number"){
-    return prompt("Please enter a number.")
+  var result = "";
+  if (typeof(num) !== "number"){
+    prompt("You did not enter a valid number. Please enter a valid number.");
   } else {
     var numToNumber = Number(num);
-    var result = numToNumber*(numToNumber-1);
+    result = numToNumber*(numToNumber-1);
   }
   return result;
 }
 
+factor(10);
+
 //Bonus: Write a function called `palindrome` that takes a string as an argument and returns the string in reversed order. Return true if the string is the same as the reversed string, otherwise return false.
-/*function(originalString){
-}
+/*Pseudo Code:
+
 copy string into a new array
 split string into seperate characters
 reverse the order of the characters in the array
@@ -89,3 +91,6 @@ if reverseString is same as originalString, return true, else, return fasle
 then merge split characters back into a string
 return final string
 */
+function palindrome(originalString) {
+
+}
