@@ -8,55 +8,75 @@ var people = [
 ];
 
 
-function oldestPerson() {
+function oldestPerson(keyValueObject) {
   var result;
   var newVar = 0;
-  for (var i = 0; i < people.length; i++) {
-   if  (people[i].age > newVar) {
+  for (var i = 0; i < keyValueObject.length; i++) {
+   if  (keyValueObject[i].age > newVar) {
 
-       newVar = people[i].age;
-       result = people[i].name;
+       newVar = keyValueObject[i].age;
+       result = keyValueObject[i].name;
      }
-    };
+    }
     return result;
   }
-
-console.log(oldestPerson());
+oldestPerson(people);
 
 //Problem 2: Define a function called `longestWord` that takes a string and returns the longest word in the string.
 
-  // var result = 0;
-  // for (var i = 0; i > strNew.length; i++){
-  //   if (strNew[i].length > result) {
-  //     strNew[i].length = result;
-  //   }
-  //   return result;
-  // }
-  function longestWord(str) {
-  var strNew = [];
-  strNew = str.split(" ");
-  var sort = strNew.sort(function(a,b){
-    return b.length - a.length;
+function longestWord(string) {
+  var stringSplit = string.split(" ");
+  var longest = 0;
+  var answer = "";
+  stringSplit.forEach(function(stringSplit){
+    if (longest < stringSplit.length){
+      longest = stringSplit.length;
+      answer = stringSplit;
+    }
   });
-  return sort[0];
-};
-console.log(longestWord("This is a test sentence."));
+  return answer;
+}
 
+// longestWord("This is a test sentence");
 
 //Problem 3: Refactor the `longestWord` function so that it ignores punctuation.
 /*pseudo code:
 after spliiting, test for anything other than capital and lowercase letters
 ignore anything other than capital or lowercase letters
-also, what to do if there are two words with the same longest length? -->if else statement to output second one
 */
+function longestWord(string) {
+  var stringSplit = string.split(" ");
+  var stringIgnorePunc = stringSplit.match(/[^_\W]+/g).join(" ");
+  var longest = 0;
+  var answer = "";
+  stringIgnorePunc.forEach(function(stringIgnorePunc){
+    if (longest < stringIgnorePunc.length){
+      longest = stringIgnorePunc.length;
+      answer = stringIgnorePunc;
+    }
+  });
+  return answer;
+}
+
+longestWord("We've been going the the lake for thirteen years, what about you?");
+
+
 
 //Problem 4: Define a function called `factorial` that takes a random number as an argument and then returns the factorial of that given number.
-/* funcion (randomNumberInput){
-}
+/*Pseudo Code: funcion (randomNumberInput){}
 make sure input is a number
 math: factorial is num*(num-1)
 if, else?
 */
+function factor(num) {
+  if (typeof num !== "number"){
+    return prompt("Please enter a number.")
+  } else {
+    var numToNumber = Number(num);
+    var result = numToNumber*(numToNumber-1);
+  }
+  return result;
+}
 
 //Bonus: Write a function called `palindrome` that takes a string as an argument and returns the string in reversed order. Return true if the string is the same as the reversed string, otherwise return false.
 /*function(originalString){
