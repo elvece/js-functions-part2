@@ -90,10 +90,18 @@ if reverseString is same as originalString, return true, else, return fasle
 then merge split characters back into a string
 return final string
 */
-function palindrome(string) {
-  var split = string.split(" ");
-  var holdArray = [];
-
-
+function palindrome(str) {
+  var split = str.split("").reverse().join("");
+  var answer = [split, compare()];
+  function compare(){
+    if (split === str){
+       return true;
+    }
+    else {
+       return false;
+    }
+  }
+  return answer;
 }
+
 palindrome("lucy");
